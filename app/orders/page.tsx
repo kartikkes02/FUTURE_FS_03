@@ -51,29 +51,18 @@ export default function OrdersPage() {
     }
   };
 
-
-  // This might be declared somewhere earlier
-const getStatusColor = (status) => {
-  return status === 'delivered' ? 'text-green-500' : 'text-red-500';
-};
-
-// This is the conflicting duplicate around line 81
-const getStatusColor = (status) => {
-  switch (status) {
-    case 'delivered':
-      return 'text-green-500';
-    case 'pending':
-      return 'text-yellow-500';
-    case 'cancelled':
-      return 'text-red-500';
-    default:
-      return 'text-gray-500';
-  }
-};
-
-
-
-
+  const getStatusIcon = (status) => {
+    switch (status) {
+      case 'delivered':
+        return 'ri-check-line';
+      case 'shipping':
+        return 'ri-truck-line';
+      case 'processing':
+        return 'ri-time-line';
+      default:
+        return 'ri-question-line';
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
