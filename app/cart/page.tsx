@@ -280,61 +280,57 @@ export default function CartPage() {
             </Link>
           </div>
         ) : (
-          <div className="space-y-6">
-            {/* Cart Items */}
-            <div className="bg-white rounded-2xl p-6 shadow-lg">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-6">Cart Items ({getTotalItems()})</h2>
+          // ...existing code...
+<div className="space-y-6">
+  {cart.map((item: CartItem) => (
+    <div key={item.id} className="flex items-center space-x-4 border-b border-gray-200 pb-6 last:border-b-0 last:pb-0">
+      <div className="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
+        <img
+          src={item.image}
+          alt={item.name}
+          className="w-full h-full object-cover object-top"
+        />
+      </div>
 
-              <div className="space-y-6">
-                {/* ✅ FIXED: Added type annotation for item */}
-                {cart.map((item: CartItem) => (
-                  <div key={item.id} className="flex items-center space-x-4 border-b border-gray-200 pb-6 last:border-b-0 last:pb-0">
-                    <div className="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
-                      <img
-                        src={item.image}
-                        alt={item.name}
-                        className="w-full h-full object-cover object-top"
-                      />
-                    </div>
+      <div className="flex-1">
+        <h3 className="text-lg font-semibold text-gray-900">{item.name}</h3>
+        <p className="text-gray-600 text-sm">{item.description}</p>
+        <div className="text-xl font-bold text-blue-600 mt-2">${item.price.toLocaleString()}</div>
+      </div>
 
-                    <div className="flex-1">
-                      <h3 className="text-lg font-semibold text-gray-900">{item.name}</h3>
-                      <p className="text-gray-600 text-sm">{item.description}</p>
-                      <div className="text-xl font-bold text-blue-600 mt-2">${item.price.toLocaleString()}</div>
-                    </div>
+      <div className="flex items-center space-x-3">
+        <button
+          onClick={() => handleQuantityChange(item.id, item.quantity - 1)}
+          className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center hover:bg-gray-300 transition-colors cursor-pointer"
+        >
+          <i className="ri-subtract-line w-4 h-4 flex items-center justify-center"></i>
+        </button>
 
-                    <div className="flex items-center space-x-3">
-                      <button
-                        onClick={() => handleQuantityChange(item.id, item.quantity - 1)}
-                        className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center hover:bg-gray-300 transition-colors cursor-pointer"
-                      >
-                        <i className="ri-subtract-line w-4 h-4 flex items-center justify-center"></i>
-                      </button>
+        <span className="w-12 text-center font-semibold">{item.quantity}</span>
 
-                      <span className="w-12 text-center font-semibold">{item.quantity}</span>
+        <button
+          onClick={() => handleQuantityChange(item.id, item.quantity + 1)}
+          className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center hover:bg-gray-300 transition-colors cursor-pointer"
+        >
+          <i className="ri-add-line w-4 h-4 flex items-center justify-center"></i>
+        </button>
+      </div>
 
-                      <button
-                        onClick={() => handleQuantityChange(item.id, item.quantity + 1)}
-                        className="w-8 h-8 rounded-full bg-gray-200 flex items-center justify-center hover:bg-gray-300 transition-colors cursor-pointer"
-                      >
-                        <i className="ri-add-line w-4 h-4 flex items-center justify-center"></i>
-                      </button>
-                    </div>
-
-                    <div className="text-right">
-                      <div className="text-lg font-semibold text-gray-900">
-                        ${(item.price * item.quantity).toLocaleString()}
-                      </div>
-                      <button
-                        onClick={() => removeFromCart(item.id)}
-                        className="text-red-500 hover:text-red-700 transition-colors mt-2 cursor-pointer"
-                      >
-                        <i className="ri-delete-bin-line w-5 h-5 flex items-center justify-center"></i>
-                      </button>
-                    </div>
-                  </div>
-                ))}
-              </div>
+      <div className="text-right">
+        <div className="text-lg font-semibold text-gray-900">
+          ${(item.price * item.quantity).toLocaleString()}
+        </div>
+        <button
+          onClick={() => removeFromCart(item.id)}
+          className="text-red-500 hover:text-red-700 transition-colors mt-2 cursor-pointer"
+        >
+          <i className="ri-delete-bin-line w-5 h-5 flex items-center justify-center"></i>
+        </button>
+      </div>
+    </div>
+  ))}
+</div>
+// ...existing code...
             </div>
 
             {/* Order Summary */}
