@@ -3,7 +3,23 @@
 import { useState } from 'react';
 import Link from 'next/link';
 
-const mockOrders = [
+type OrderStatus = 'delivered' | 'shipping' | 'processing';
+
+interface OrderItem {
+  name: string;
+  price: number;
+  quantity: number;
+}
+
+interface Order {
+  id: string;
+  date: string;
+  status: OrderStatus;
+  total: number;
+  items: OrderItem[];
+}
+
+const mockOrders: Order[] = [
   {
     id: 'ORD-001',
     date: '2024-01-15',
@@ -36,9 +52,9 @@ const mockOrders = [
 ];
 
 export default function OrdersPage() {
-  const [selectedOrder, setSelectedOrder] = useState(null);
+  const [selectedOrder, setSelectedOrder] = useState<Order | null>(null);
 
-  const getStatusColor = (status) => {
+  const getStatusColor = (status: OrderStatus): string => {
     switch (status) {
       case 'delivered':
         return 'bg-green-100 text-green-800';
@@ -51,7 +67,7 @@ export default function OrdersPage() {
     }
   };
 
-  const getStatusIcon = (status) => {
+  const getStatusIcon = (status: OrderStatus): string => {
     switch (status) {
       case 'delivered':
         return 'ri-check-line';
