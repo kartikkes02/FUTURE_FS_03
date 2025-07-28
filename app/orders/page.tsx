@@ -51,18 +51,33 @@ export default function OrdersPage() {
     }
   };
 
-  const getStatusIcon = (status) => {
-    switch (status) {
-      case 'delivered':
-        return 'ri-check-double-line';
-      case 'shipping':
-        return 'ri-truck-line';
-      case 'processing':
-        return 'ri-time-line';
-      default:
-        return 'ri-package-line';
-    }
-  };
+  // const getStatusIcon = (status) => {
+  //   switch (status) {
+  //     case 'delivered':
+  //       return 'ri-check-double-line';
+  //     case 'shipping':
+  //       return 'ri-truck-line';
+  //     case 'processing':
+  //       return 'ri-time-line';
+  //     default:
+  //       return 'ri-package-line';
+  //   }
+  // };
+
+
+  const getStatusColor = (status: string) => {
+  switch (status) {
+    case 'delivered':
+      return 'bg-green-100 text-green-800';
+    case 'processing':
+      return 'bg-yellow-100 text-yellow-800';
+    case 'cancelled':
+      return 'bg-red-100 text-red-800';
+    default:
+      return 'bg-gray-100 text-gray-800';
+  }
+};
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
