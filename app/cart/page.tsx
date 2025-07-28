@@ -280,7 +280,6 @@ export default function CartPage() {
             </Link>
           </div>
         ) : (
-          // ...existing code...
 <div className="space-y-6">
   {cart.map((item: CartItem) => (
     <div key={item.id} className="flex items-center space-x-4 border-b border-gray-200 pb-6 last:border-b-0 last:pb-0">
@@ -330,9 +329,6 @@ export default function CartPage() {
     </div>
   ))}
 </div>
-// ...existing code...
-            </div>
-
             {/* Order Summary */}
             <div className="bg-white rounded-2xl p-6 shadow-lg">
               <h2 className="text-2xl font-semibold text-gray-900 mb-6">Order Summary</h2>
