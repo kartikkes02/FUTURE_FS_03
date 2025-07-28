@@ -52,7 +52,13 @@ export default function OrdersPage() {
   };
 
 
-  const getStatusColor = (status) => {
+  // This might be declared somewhere earlier
+const getStatusColor = (status) => {
+  return status === 'delivered' ? 'text-green-500' : 'text-red-500';
+};
+
+// This is the conflicting duplicate around line 81
+const getStatusColor = (status) => {
   switch (status) {
     case 'delivered':
       return 'text-green-500';
@@ -64,6 +70,7 @@ export default function OrdersPage() {
       return 'text-gray-500';
   }
 };
+
 
 
 
