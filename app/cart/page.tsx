@@ -201,6 +201,16 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { useCart } from '../hooks/useCart';
 
+// ✅ Type definition for cart items
+type CartItem = {
+  id: string;
+  name: string;
+  description: string;
+  image: string;
+  price: number;
+  quantity: number;
+};
+
 export default function CartPage() {
   const { cart, updateQuantity, removeFromCart, getTotalPrice, getTotalItems } = useCart();
   const [isCheckingOut, setIsCheckingOut] = useState(false);
@@ -215,17 +225,14 @@ export default function CartPage() {
 
   const handleCheckout = () => {
     setIsCheckingOut(true);
-    // Simulate checkout process
     setTimeout(() => {
       setIsCheckingOut(false);
-      // Redirect to checkout page
       window.location.href = '/checkout';
     }, 1000);
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
-      {/* Header */}
       <header className="bg-white/80 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
@@ -279,7 +286,8 @@ export default function CartPage() {
               <h2 className="text-2xl font-semibold text-gray-900 mb-6">Cart Items ({getTotalItems()})</h2>
 
               <div className="space-y-6">
-                {cart.map(item => (
+                {/* ✅ FIXED: Added type annotation for item */}
+                {cart.map((item: CartItem) => (
                   <div key={item.id} className="flex items-center space-x-4 border-b border-gray-200 pb-6 last:border-b-0 last:pb-0">
                     <div className="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
                       <img
