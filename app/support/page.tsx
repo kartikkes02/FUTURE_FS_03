@@ -30,14 +30,13 @@ export default function SupportPage() {
     });
   };
 
-  
-const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
-  console.log('Form submitted:', formData);
-  setFormData({ name: '', email: '', subject: '', message: '' });
-}; // Proper closing brace and semicolon
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log('Form submitted:', formData);
+    setFormData({ name: '', email: '', subject: '', message: '' });
+  };
 
-return (
+  return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       {/* Header */}
       <header className="bg-white/80 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50">
@@ -377,4 +376,7 @@ return (
                 <span className="w-3 h-3 bg-green-500 rounded-full"></span>
               </div>
               <p className="text-sm text-gray-600">Operational - 99.9% uptime</p>
-        
+            </div>
+
+            <div className="bg-white border border-gray-200 rounded-2xl p-6">
+              <div clas
