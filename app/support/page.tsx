@@ -347,7 +347,7 @@ export default function SupportPage() {
         </div>
       </section>
 
-      {/* Status Page */}
+      {/* System Status */}
       <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -379,4 +379,102 @@ export default function SupportPage() {
             </div>
 
             <div className="bg-white border border-gray-200 rounded-2xl p-6">
-              <div clas
+              <div className="flex items-center justify-between mb-4">
+                <h4 className="text-lg font-semibold text-gray-900">API Services</h4>
+                <span className="w-3 h-3 bg-green-500 rounded-full"></span>
+              </div>
+              <p className="text-sm text-gray-600">Operational - 99.8% uptime</p>
+            </div>
+            <div className="bg-white border border-gray-200 rounded-2xl p-6">
+              <div className="flex items-center justify-between mb-4">
+                <h4 className="text-lg font-semibold text-gray-900">Payment System</h4>
+                <span className="w-3 h-3 bg-green-500 rounded-full"></span>
+              </div>
+              <p className="text-sm text-gray-600">Operational - 100% uptime</p>
+            </div>
+
+            <div className="bg-white border border-gray-200 rounded-2xl p-6">
+              <div className="flex items-center justify-between mb-4">
+                <h4 className="text-lg font-semibold text-gray-900">Support Portal</h4>
+                <span className="w-3 h-3 bg-green-500 rounded-full"></span>
+              </div>
+              <p className="text-sm text-gray-600">Operational - 99.7% uptime</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+              <div className="text-2xl font-bold mb-6">
+                <i className="ri-apple-fill w-8 h-8 flex items-center justify-center"></i>
+              </div>
+              <p className="text-gray-400 mb-6">
+                Innovative technology solutions that enhance your digital experience.
+              </p>
+              <div className="flex space-x-4">
+                <button className="text-gray-400 hover:text-white transition-colors cursor-pointer">
+                  <i className="ri-facebook-fill w-6 h-6 flex items-center justify-center"></i>
+                </button>
+                <button className="text-gray-400 hover:text-white transition-colors cursor-pointer">
+                  <i className="ri-twitter-fill w-6 h-6 flex items-center justify-center"></i>
+                </button>
+                <button className="text-gray-400 hover:text-white transition-colors cursor-pointer">
+                  <i className="ri-instagram-line w-6 h-6 flex items-center justify-center"></i>
+                </button>
+                <button className="text-gray-400 hover:text-white transition-colors cursor-pointer">
+                  <i className="ri-linkedin-fill w-6 h-6 flex items-center justify-center"></i>
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-6">Products</h3>
+              <div className="space-y-3">
+                <Link href="/products" className="block text-gray-400 hover:text-white transition-colors cursor-pointer">All Products</Link>
+                <Link href="/products/smartphones" className="block text-gray-400 hover:text-white transition-colors cursor-pointer">Smartphones</Link>
+                <Link href="/products/tablets" className="block text-gray-400 hover:text-white transition-colors cursor-pointer">Tablets</Link>
+                <Link href="/products/accessories" className="block text-gray-400 hover:text-white transition-colors cursor-pointer">Accessories</Link>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-6">Support</h3>
+              <div className="space-y-3">
+                <Link href="/support" className="block text-gray-400 hover:text-white transition-colors cursor-pointer">Contact Us</Link>
+                <Link href="/support/warranty" className="block text-gray-400 hover:text-white transition-colors cursor-pointer">Warranty</Link>
+                <Link href="/support/repairs" className="block text-gray-400 hover:text-white transition-colors cursor-pointer">Repairs</Link>
+                <Link href="/support/downloads" className="block text-gray-400 hover:text-white transition-colors cursor-pointer">Downloads</Link>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-6">Company</h3>
+              <div className="space-y-3">
+                <Link href="/about" className="block text-gray-400 hover:text-white transition-colors cursor-pointer">About Us</Link>
+                <Link href="/careers" className="block text-gray-400 hover:text-white transition-colors cursor-pointer">Careers</Link>
+                <Link href="/press" className="block text-gray-400 hover:text-white transition-colors cursor-pointer">Press</Link>
+                <Link href="/investors" className="block text-gray-400 hover:text-white transition-colors cursor-pointer">Investors</Link>
+              </div>
+            </div>
+          </div>
+
+          <div className="border-t border-gray-800 pt-8 mt-12">
+            <div className="flex flex-col md:flex-row justify-between items-center">
+              <p className="text-gray-400 text-sm">
+                © 2024 Your Company. All rights reserved.
+              </p>
+              <div className="flex space-x-6 mt-4 md:mt-0">
+                <Link href="/privacy" className="text-gray-400 hover:text-white text-sm transition-colors cursor-pointer">Privacy Policy</Link>
+                <Link href="/terms" className="text-gray-400 hover:text-white text-sm transition-colors cursor-pointer">Terms of Service</Link>
+                <Link href="/cookies" className="text-gray-400 hover:text-white text-sm transition-colors cursor-pointer">Cookie Policy</Link>
+              </div>
+            </div>
+          </div>
+          </div>
+      </footer>
+    </div>
+  );
+}
