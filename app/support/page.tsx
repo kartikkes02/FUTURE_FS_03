@@ -30,16 +30,14 @@ export default function SupportPage() {
     });
   };
 
-  // Fixed: Added proper type annotation for the event parameter
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
-    // Reset form
-    setFormData({ name: '', email: '', subject: '', message: '' });
-  };
+  
+const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+  console.log('Form submitted:', formData);
+  setFormData({ name: '', email: '', subject: '', message: '' });
+}; // Proper closing brace and semicolon
 
-  return (
+return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       {/* Header */}
       <header className="bg-white/80 backdrop-blur-md border-b border-gray-200 sticky top-0 z-50">
