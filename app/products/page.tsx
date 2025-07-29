@@ -4,7 +4,18 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useCart } from '../hooks/useCart';
 
-const products = [
+// Define the Product type
+interface Product {
+  id: number;
+  name: string;
+  price: number;
+  category: string;
+  image: string;
+  description: string;
+  features: string[];
+}
+
+const products: Product[] = [
   {
     id: 1,
     name: 'NeoPhone Pro',
@@ -64,7 +75,7 @@ const products = [
 export default function ProductsPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [filteredProducts, setFilteredProducts] = useState(products);
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>(products);
   const [sortBy, setSortBy] = useState('name');
   const { addToCart } = useCart();
 
@@ -95,7 +106,8 @@ export default function ProductsPage() {
     setFilteredProducts(filtered);
   }, [searchQuery, selectedCategory, sortBy]);
 
-  const handleAddToCart = (product) => {
+  // Fixed: Added Product type annotation to the parameter
+  const handleAddToCart = (product: Product) => {
     addToCart(product);
   };
 
